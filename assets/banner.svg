@@ -42,7 +42,7 @@
   </g>
   <g font-family="ui-monospace,Menlo,monospace" font-size="14" fill="#8a93a0">
     <text x="80" y="244">VISUO-TACTILE SLAM · 3D GAUSSIAN SPLATTING · VERIFIABLE AI TOOLING</text>
-    <text x="80" y="270">SNU SRBL → UCF · SEOUL 37.46°N → ORLANDO 28.60°N</text>
+    <text x="80" y="270">SNU SRBL → UCF</text>
   </g>
   <line x1="80" y1="212" x2="560" y2="212" stroke="#3ebfc6" stroke-width="1.6"/>
 </svg>

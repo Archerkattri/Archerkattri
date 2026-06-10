@@ -41,7 +41,6 @@ Robotics & AI — I build research systems that ship as real libraries: visuo-ta
   <sub>
     <a href="https://archerkattri.github.io">portfolio</a> ·
     <a href="https://archerkattri.github.io/splatreg/">splatreg docs</a> ·
-    <a href="https://glama.ai/mcp/servers/Archerkattri/mathlas">mathlas on Glama</a> ·
-    Seoul <code>37.46°N</code> → Orlando <code>28.60°N</code> · est. arrival Aug 2026
+    <a href="https://glama.ai/mcp/servers/Archerkattri/mathlas">mathlas on Glama</a>
   </sub>
 </p>
