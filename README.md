@@ -7,7 +7,6 @@
   <a href="https://www.linkedin.com/in/krishi-attri15/"><img src="https://img.shields.io/badge/LinkedIn-Krishi%20Attri-3ebfc6?style=flat-square&labelColor=0C0D10&logo=linkedin&logoColor=3ebfc6" alt="LinkedIn"></a>
   <a href="mailto:krishiattriwork@gmail.com"><img src="https://img.shields.io/badge/email-krishiattriwork-E9E4D6?style=flat-square&labelColor=0C0D10" alt="Email"></a>
   <img src="https://img.shields.io/badge/SNU%20SRBL-%E2%86%92%20UCF%20Ph.D.-8a93a0?style=flat-square&labelColor=0C0D10" alt="SNU to UCF">
-  <img src="https://komarev.com/ghpvc/?username=Archerkattri&style=flat-square&color=3ebfc6&label=views" alt="profile views">
 </p>
 
 <p align="center">
