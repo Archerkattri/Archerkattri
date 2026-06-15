@@ -1,0 +1,52 @@
+{
+  "_comment": "Single source of truth for every CURATED number in README.md. Benchmark results have no live API, so they live here and are injected by gen_readme.py into the <!-- AUTOGEN:key -->...<!-- /AUTOGEN:key --> regions. Provenance for each figure is in SOURCES.md. To update a number: edit its value here, then run `python gen_readme.py`. Values are stored with the exact literal characters used in README.md (Unicode middle-dot, arrow, degree, times) so regeneration is byte-for-byte. Live-API numbers (PyPI version + downloads, GitHub stars) are NOT in this file; they are shields.io badges that refresh on page view.",
+
+  "counts": {
+    "libraries_launched": 4,
+    "open_source_repos": "20+",
+    "_note_open_source_repos": "Curated, NOT the raw GitHub public_repos count. GitHub API reports 36 public repos but 13 are forks, leaving 23 original. '20+' is the honest conservative claim for original work. A live public_repos badge would show 36 and over-count forks, so this stays generator-driven."
+  },
+
+  "libraries": {
+    "splatreg": {
+      "headline": "**91.5%** official 3DMatch recall · splat-merge Chamfer **10.3 → 2.0 mm** vs naive concat · photometric refine **5° → 0.36°** where geometry under-constrains"
+    },
+    "mathlas": {
+      "headline": "Beats TheoremSearch on its own 110 human queries (**59.1 vs 45.0** Hit@20) · mathlib formal search **Hit@5 0.96** · zero false positives across every verification tier"
+    },
+    "hicache_pp": {
+      "headline": "Exact on the feature-ODE class: error stays **flat** across the skip horizon where polynomial bases diverge (4.7e-9 vs 6.5 at H=8) · `auto` detects basis misfit **120/120**"
+    },
+    "certflow": {
+      "headline": "Coverage at or above the claimed level on **every** reported condition including replayed METR-LA / PEMS-BAY traffic · 223 tests · 16 reproduction pipelines · 7 theorems including an impossibility result"
+    }
+  },
+
+  "adapters": {
+    "trellis_v1": {
+      "headline": "2.85× at equal-or-better F-score vs Fast-TRELLIS"
+    },
+    "trellis2_4b": {
+      "headline": "carved-hybrid sampler"
+    },
+    "hunyuan2_mini": {
+      "headline": "exactly lossless at interval-5 (F 0.794 = 0.794)"
+    },
+    "hunyuan2_1": {
+      "headline": "DMD leads +0.13 F at i5, +0.24 at i6"
+    },
+    "sam3d": {
+      "headline": "geometry-lossless (F1 = 1.000) to interval-6 at 1.56×"
+    },
+    "fastsam3d": {
+      "headline": "stacked accelerations"
+    }
+  },
+
+  "gaussianfeels": {
+    "add_s_sim_mm": "0.83 mm",
+    "add_s_real_mm": "3.37 mm",
+    "speedup_vs_neural_field": "7.6×",
+    "sim2real_retention": "94%"
+  }
+}
