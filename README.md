@@ -21,8 +21,6 @@
 
 <p align="center">
   <!-- AUTOGEN:counts.libraries_launched --><img src="https://img.shields.io/badge/-4_libraries_launched-3ebfc6?style=flat-square&labelColor=0C0D10" alt=""><!-- /AUTOGEN:counts.libraries_launched -->
-  <!-- LIVE (cron): total stars earned across every owned repo, summed by fetch_stats.py and committed every 6h, so it self-updates without ever being mis-cached by GitHub's image proxy. -->
-  <a href="https://github.com/Archerkattri?tab=repositories"><!-- AUTOGEN:live.total_stars --><img src="https://img.shields.io/badge/%E2%98%85_41_stars_earned-3ebfc6?style=flat-square&labelColor=0C0D10" alt="41 stars earned across all repositories (auto-refreshed)"><!-- /AUTOGEN:live.total_stars --></a>
   <!-- LIVE: public repo count, refreshes on page view via the GitHub API. Reads ~36 because it includes forks (originals are fewer); honest "public repos" label. -->
   <a href="https://github.com/Archerkattri?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FArcherkattri&query=%24.public_repos&label=public%20repos&style=flat-square&labelColor=0C0D10&color=8a93a0&logo=github&logoColor=8a93a0" alt="public repos (live)"></a>
   <!-- LIVE: GitHub followers, refreshes on page view. -->
@@ -37,12 +35,10 @@
   every number in the card below are fetched fresh on every page view, no manual
   editing. The github-readme-stats card renders Total Stars Earned, Total Commits, PRs
   and Contributions live from the GitHub API. Per-repo star and PyPI badges in the
-  Shipped table are likewise live. The hero "stars earned" badge is summed across every
-  repo by fetch_stats.py and committed every 6h (.github/workflows/refresh-stats.yml),
-  so it self-updates and is never mis-cached. Theme: teal #3ebfc6 / carbon #0C0D10 / grey #8a93a0.
+  Shipped table are likewise live. Theme: teal #3ebfc6 / carbon #0C0D10 / grey #8a93a0.
 -->
 <p align="center">
-  <sub>Live from the GitHub API, recomputed on every page view: total stars, commits, PRs and contributions. The hero ★ badge is summed across every repo and auto-refreshes every 6h, last on <!-- AUTOGEN:live.updated -->2026-06-15<!-- /AUTOGEN:live.updated --> UTC.</sub>
+  <sub>Live from the GitHub API, recomputed on every page view: total stars, commits, PRs and contributions.</sub>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0"><tr>
