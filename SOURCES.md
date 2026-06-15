@@ -5,12 +5,7 @@ origin, so future updates are auditable. Live-API badges (PyPI version, PyPI
 downloads/month, GitHub stars) are not listed: they refresh on page view and have
 no manual value to source.
 
-There are two source files: `data.json` (curated, human-edited, the numbers below)
-and `live.json` (machine-written by `fetch_stats.py` on a 6h cron, never hand-edited).
-`gen_readme.py` stamps both into the `<!-- AUTOGEN:key -->` regions.
-
-To update a curated number: edit `data.json`, then run `python gen_readme.py`.
-The account-wide live numbers update themselves; see the Live section below.
+To update any number: edit `data.json`, then run `python gen_readme.py`.
 
 ## counts
 
@@ -49,7 +44,7 @@ The former `counts.open_source_repos` ("20+") was retired on 2026-06-15. The rep
 | `gaussianfeels.speedup_vs_neural_field` | 7.6x | GaussianFeels M.S. thesis, speedup vs neural-field baseline. |
 | `gaussianfeels.sim2real_retention` | 94% | GaussianFeels M.S. thesis, sim-to-real reconstruction retention. |
 
-## Live (self-updating, no manual maintenance)
+## Live (not in this file, no manual maintenance)
 
 These refresh on every page view straight from the upstream API. There is no value to store and nothing to regenerate.
 
@@ -61,17 +56,4 @@ These refresh on every page view straight from the upstream API. There is no val
 - PyPI downloads/month: `img.shields.io/pypi/dm/<pkg>`.
 - top-langs card, activity graph, typing-svg header, Glama score badge.
 
-### Account-wide numbers committed on a cron (`live.json`)
-
-| key | value | source |
-|---|---|---|
-| `live.total_stars` | 41 | `fetch_stats.py`: sum of `stargazers_count` over owned, non-fork repos via `GET /users/Archerkattri/repos`. Matches the github-readme-stats "Total Stars Earned". |
-| `live.updated` | 2026-06-15 | UTC date `fetch_stats.py` last wrote `live.json`. |
-
-These are written by `.github/workflows/refresh-stats.yml` every 6 hours and committed,
-so they self-update. Why commit instead of using a live badge? There is no honest
-single-URL shields path for an account-wide star total: `img.shields.io/github/stars/Archerkattri`
-(no repo) returns the stars on the `Archerkattri/Archerkattri` profile repo, not the
-account total. And GitHub proxies README images through camo, which can serve a "live"
-badge stale for a long time. Computing the sum ourselves and committing it sidesteps
-both problems. (The github-readme-stats card still shows the same total live on page view.)
+Note on "total stars" as a standalone badge: there is no honest single-URL shields path for an account-wide star total. `img.shields.io/github/stars/Archerkattri` (no repo) actually returns the star count of the `Archerkattri/Archerkattri` profile repo, not the account total, so it is intentionally NOT used. The live account-wide total is shown by the github-readme-stats card ("Total Stars Earned").
