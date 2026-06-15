@@ -1,10 +1,10 @@
 {
-  "_comment": "Single source of truth for every CURATED number in README.md. Benchmark results have no live API, so they live here and are injected by gen_readme.py into the <!-- AUTOGEN:key -->...<!-- /AUTOGEN:key --> regions. Provenance for each figure is in SOURCES.md. To update a number: edit its value here, then run `python gen_readme.py`. Values are stored with the exact literal characters used in README.md (Unicode middle-dot, arrow, degree, times) so regeneration is byte-for-byte. Live-API numbers (PyPI version + downloads, GitHub stars) are NOT in this file; they are shields.io badges that refresh on page view.",
+  "_comment": "Single source of truth for every CURATED number in README.md. Benchmark results have no live API, so they live here and are injected by gen_readme.py into the <!-- AUTOGEN:key -->...<!-- /AUTOGEN:key --> regions. Provenance for each figure is in SOURCES.md. To update a number: edit its value here, then run `python gen_readme.py`. Values are stored with the exact literal characters used in README.md (Unicode middle-dot, arrow, degree, times) so regeneration is byte-for-byte. Live-API numbers are NOT in this file; they are shields.io / github-readme-stats badges that refresh on page view: PyPI version + downloads, per-repo GitHub stars, GitHub followers, public-repo count, and the stats card (total stars, commits, PRs, contributions).",
 
   "counts": {
     "libraries_launched": 4,
-    "open_source_repos": "20+",
-    "_note_open_source_repos": "Curated, NOT the raw GitHub public_repos count. GitHub API reports 36 public repos but 13 are forks, leaving 23 original. '20+' is the honest conservative claim for original work. A live public_repos badge would show 36 and over-count forks, so this stays generator-driven."
+    "_note_libraries_launched": "Curated subset (splatreg, mathlas, HiCache++, CERT-FLOW): the four launched + DOI-archived libraries shown in the Shipped table. No public API counts 'launched libraries', so this stays generator-driven.",
+    "_note_open_source_repos": "REMOVED from the generator on 2026-06-15: the repo count is now a LIVE shields dynamic/json badge in README.md reading public_repos from the GitHub API (currently ~36, includes forks; labeled honestly 'public repos'). Per Krishi's instruction that every stat-like number be live, the conservative static '20+' was retired in favor of the live count."
   },
 
   "libraries": {

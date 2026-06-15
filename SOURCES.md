@@ -11,8 +11,9 @@ To update any number: edit `data.json`, then run `python gen_readme.py`.
 
 | key | value | source |
 |---|---|---|
-| `counts.libraries_launched` | 4 | Curated subset: splatreg, mathlas, HiCache++, CERT-FLOW (the four launched + DOI-archived libraries shown in the Shipped table). No public API. |
-| `counts.open_source_repos` | 20+ | Curated, conservative. GitHub API (`users/Archerkattri.public_repos`) reports 36 public repos, but 13 are forks, leaving 23 original. "20+" is the honest floor for original work. A live `public_repos` badge would display 36 (forks included), so this is intentionally generator-driven, not live. |
+| `counts.libraries_launched` | 4 | Curated subset: splatreg, mathlas, HiCache++, CERT-FLOW (the four launched + DOI-archived libraries shown in the Shipped table). No public API counts "launched libraries", so it stays generator-driven. |
+
+The former `counts.open_source_repos` ("20+") was retired on 2026-06-15. The repo count is now a **live** shields `dynamic/json` badge reading `users/Archerkattri.public_repos` from the GitHub API (currently ~36, includes forks, labeled honestly "public repos"). See the Live section below.
 
 ## libraries (Shipped table, "the number that matters" column)
 
@@ -45,7 +46,14 @@ To update any number: edit `data.json`, then run `python gen_readme.py`.
 
 ## Live (not in this file, no manual maintenance)
 
-- PyPI version: `img.shields.io/pypi/v/<pkg>` (splatreg, mathlas-mcp, hicache-pp, certflow)
-- PyPI downloads/month: `img.shields.io/pypi/dm/<pkg>`
-- GitHub stars: `img.shields.io/github/stars/Archerkattri/<repo>` (splatreg, mathlas, hicache-plus-plus, CERT-FLOW)
-- github-readme-stats card, top-langs, activity graph, typing-svg header, Glama score badge.
+These refresh on every page view straight from the upstream API. There is no value to store and nothing to regenerate.
+
+- GitHub followers: `img.shields.io/github/followers/Archerkattri` (renders the live follower count).
+- Public-repo count: `img.shields.io/badge/dynamic/json?url=api.github.com/users/Archerkattri&query=$.public_repos` (live; reads ~36, includes forks; labeled "public repos").
+- Total stars earned, total commits, PRs, contributions: the `github-readme-stats` card renders all of these live from the GitHub API.
+- Per-repo GitHub stars: `img.shields.io/github/stars/Archerkattri/<repo>` (splatreg, mathlas, hicache-plus-plus, CERT-FLOW).
+- PyPI version: `img.shields.io/pypi/v/<pkg>` (splatreg, mathlas-mcp, hicache-pp, certflow).
+- PyPI downloads/month: `img.shields.io/pypi/dm/<pkg>`.
+- top-langs card, activity graph, typing-svg header, Glama score badge.
+
+Note on "total stars" as a standalone badge: there is no honest single-URL shields path for an account-wide star total. `img.shields.io/github/stars/Archerkattri` (no repo) actually returns the star count of the `Archerkattri/Archerkattri` profile repo, not the account total, so it is intentionally NOT used. The live account-wide total is shown by the github-readme-stats card ("Total Stars Earned").

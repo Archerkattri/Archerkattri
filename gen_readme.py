@@ -58,9 +58,12 @@ def _count_badge(label_text: str, color: str) -> str:
     )
 
 
+# NOTE: counts.open_source_repos used to live here but was retired on 2026-06-15.
+# The public-repo count is now a LIVE shields dynamic/json badge in README.md
+# (reads users/Archerkattri.public_repos from the GitHub API on each page view),
+# so it is no longer generator-driven. Only genuinely API-less curated counts stay.
 TEMPLATED = {
     "counts.libraries_launched": lambda v: _count_badge(f"{v} libraries launched", "3ebfc6"),
-    "counts.open_source_repos": lambda v: _count_badge(f"{v} open-source repos", "8a93a0"),
 }
 
 

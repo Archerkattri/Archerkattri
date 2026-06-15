@@ -21,16 +21,30 @@
 
 <p align="center">
   <!-- AUTOGEN:counts.libraries_launched --><img src="https://img.shields.io/badge/-4_libraries_launched-3ebfc6?style=flat-square&labelColor=0C0D10" alt=""><!-- /AUTOGEN:counts.libraries_launched -->
-  <!-- AUTOGEN:counts.open_source_repos --><img src="https://img.shields.io/badge/-20%2B_open--source_repos-8a93a0?style=flat-square&labelColor=0C0D10" alt=""><!-- /AUTOGEN:counts.open_source_repos -->
+  <!-- LIVE: public repo count, refreshes on page view via the GitHub API. Reads ~36 because it includes forks (originals are fewer); honest "public repos" label. -->
+  <a href="https://github.com/Archerkattri?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FArcherkattri&query=%24.public_repos&label=public%20repos&style=flat-square&labelColor=0C0D10&color=8a93a0&logo=github&logoColor=8a93a0" alt="public repos (live)"></a>
+  <!-- LIVE: GitHub followers, refreshes on page view. -->
+  <a href="https://github.com/Archerkattri?tab=followers"><img src="https://img.shields.io/github/followers/Archerkattri?style=flat-square&labelColor=0C0D10&color=3ebfc6&logo=github&logoColor=3ebfc6&label=followers" alt="followers (live)"></a>
   <img src="https://img.shields.io/badge/-DOI--archived_%2B_on_PyPI-8a93a0?style=flat-square&labelColor=0C0D10" alt="">
 </p>
 
 ---
 
+<!--
+  LIVE PROFILE STATS. The followers + public-repo badges in the hero strip above and
+  every number in the card below are fetched fresh on every page view, no manual
+  editing. The github-readme-stats card renders Total Stars Earned, Total Commits, PRs
+  and Contributions live from the GitHub API. Per-repo star and PyPI badges in the
+  Shipped table are likewise live. Theme: teal #3ebfc6 / carbon #0C0D10 / grey #8a93a0.
+-->
+<p align="center">
+  <sub>Live from the GitHub API, recomputed on every page view: total stars, commits, PRs and contributions.</sub>
+</p>
+
 <table align="center" border="0" cellspacing="0" cellpadding="0"><tr>
 <td valign="top" width="50%">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Archerkattri&show_icons=true&include_all_commits=true&rank_icon=percentile&hide_border=true&title_color=3ebfc6&icon_color=3ebfc6&text_color=c9d1d9&bg_color=0C0D10&hide=issues" alt="GitHub stats">
+<img src="https://github-readme-stats.vercel.app/api?username=Archerkattri&show_icons=true&include_all_commits=true&rank_icon=percentile&hide_border=true&title_color=3ebfc6&icon_color=3ebfc6&text_color=c9d1d9&bg_color=0C0D10&hide=issues" alt="GitHub stats (live: total stars, commits, PRs, contributions)">
 
 </td>
 <td valign="top" width="50%">
