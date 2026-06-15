@@ -20,7 +20,9 @@
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/user/Archerkattri/"><img src="https://img.shields.io/badge/packages-on%20PyPI-3ebfc6?style=flat-square&labelColor=0C0D10&logo=pypi&logoColor=3ebfc6" alt="PyPI"></a>
+  <a href="https://github.com/Archerkattri?tab=followers"><img src="https://img.shields.io/github/followers/Archerkattri?style=flat-square&labelColor=0C0D10&color=3ebfc6&logo=github&logoColor=3ebfc6&label=followers" alt="followers (live)"></a>
+  <a href="https://github.com/Archerkattri?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Fusers%2FArcherkattri&query=%24.public_repos&label=public%20repos&style=flat-square&labelColor=0C0D10&color=8a93a0&logo=github&logoColor=8a93a0" alt="public repos (live)"></a>
+  <a href="https://pypi.org/user/kattri/"><img src="https://img.shields.io/badge/packages-on%20PyPI-3ebfc6?style=flat-square&labelColor=0C0D10&logo=pypi&logoColor=3ebfc6" alt="PyPI"></a>
 </p>
 
 ---
