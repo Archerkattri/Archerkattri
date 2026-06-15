@@ -1,0 +1,62 @@
+name: refresh-stats
+
+# Makes the profile genuinely self-updating. Every 6 hours (and on demand, and
+# whenever the data/generator changes) this recomputes the account-wide live
+# numbers from the GitHub API and commits the result, so the README's headline
+# "stars earned" badge and "last refreshed" date stay current with zero manual
+# editing. Page-view-live badges (followers, per-repo stars, the stats card)
+# keep refreshing on their own; this owns the numbers that need committing.
+
+on:
+  schedule:
+    - cron: "7 */6 * * *" # every 6 hours, at :07 to avoid top-of-hour congestion
+  workflow_dispatch: {}
+  push:
+    branches: [master]
+    paths:
+      - data.json
+      - gen_readme.py
+      - fetch_stats.py
+      - .github/workflows/refresh-stats.yml
+
+permissions:
+  contents: write
+
+# Never let two refresh runs race to push. Do not cancel an in-progress run:
+# it may be mid-commit.
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch account-wide stats into live.json
+        env:
+          # Lifts the API rate limit from 60/hr to 5000/hr. No extra scope needed:
+          # only public read calls are made.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: Archerkattri
+        run: python fetch_stats.py
+
+      - name: Stamp the numbers into README.md
+        run: python gen_readme.py
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet -- README.md live.json; then
+            echo "Stats unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "Krishi Attri"
+          git config user.email "krishiattriwork@gmail.com"
+          git add README.md live.json
+          git commit -m "Refresh live profile stats"
+          git push
