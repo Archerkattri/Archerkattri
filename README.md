@@ -30,35 +30,20 @@
 ## ▌ Live dashboard
 
 <!--
-  EVERY number on this page is live. There are no hand-maintained figures anywhere
-  in this README: the cards below are rendered on each page view from the GitHub API,
-  and the per-package version / downloads / star badges in the Shipped table are live
-  shields. (GitHub proxies and caches README images, so a value can lag a little before
-  it catches up; it always converges.) Theme: teal #3ebfc6 / carbon #0C0D10 / grey #8a93a0.
+  assets/stats.svg is rendered and committed by .github/workflows/live-stats.yml,
+  running on GitHub's servers every 5 minutes (and the instant someone stars this
+  repo). It is a single source of truth fetched straight from the GitHub API, so no
+  two numbers ever disagree, and because it is a COMMITTED file it busts GitHub's
+  image cache and actually changes when the numbers change, unlike third-party widget
+  images which sit frozen behind GitHub's camo proxy. Nothing runs on a personal
+  machine. To re-render by hand: run scripts/update_stats.py (needs GITHUB_TOKEN).
 -->
 <p align="center">
-  <sub>Pulled live from the GitHub API on every visit: stars, commits, PRs, contributions, streak, languages, plus each package's version and downloads below. Nothing here is hand-edited.</sub>
-</p>
-
-<table align="center" border="0" cellspacing="0" cellpadding="0"><tr>
-<td valign="top" width="50%">
-
-<img src="https://github-readme-stats.vercel.app/api?username=Archerkattri&show_icons=true&include_all_commits=true&count_private=true&rank_icon=percentile&hide_border=true&title_color=3ebfc6&icon_color=3ebfc6&text_color=c9d1d9&bg_color=0C0D10&hide=issues" alt="GitHub stats (live: total stars, commits, PRs, contributions)">
-
-</td>
-<td valign="top" width="50%">
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Archerkattri&layout=compact&langs_count=8&hide_border=true&title_color=3ebfc6&text_color=c9d1d9&bg_color=0C0D10" alt="Top languages (live)">
-
-</td>
-</tr></table>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=Archerkattri&hide_border=true&background=0C0D10&stroke=1b1e24&ring=3ebfc6&fire=3ebfc6&currStreakNum=c9d1d9&currStreakLabel=3ebfc6&sideNums=c9d1d9&sideLabels=8a93a0&dates=8a93a0&excludeDaysLabel=8a93a0" alt="Contribution streak (live)" width="98%">
+  <img src="assets/stats.svg" alt="Live GitHub stats for Krishi Attri: stars, commits, pull requests, repositories, followers, and language mix" width="100%">
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Archerkattri&bg_color=0C0D10&color=c9d1d9&line=3ebfc6&point=ffffff&area=true&area_color=3ebfc6&hide_border=true&custom_title=Build%20activity" alt="Contribution activity (live)" width="98%">
+  <sub>Self-rendered and committed by GitHub Actions every ~5 minutes (and the moment someone stars this repo). One source, fetched from the GitHub API; nothing hand-edited, nothing run locally.</sub>
 </p>
 
 ## ▌ Shipped
