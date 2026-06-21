@@ -1,5 +1,5 @@
 {
-  "commits": 541,
+  "commits": 544,
   "followers": 3,
   "languages": [
     {
@@ -10,7 +10,7 @@
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 15.1
+      "pct": 15.0
     },
     {
       "color": "#f34b7d",
@@ -25,7 +25,7 @@
     {
       "color": "#A97BFF",
       "name": "Kotlin",
-      "pct": 1.4
+      "pct": 1.5
     },
     {
       "color": "#3A4E3A",
