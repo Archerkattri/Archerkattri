@@ -1,16 +1,16 @@
 {
-  "commits": 549,
+  "commits": 554,
   "followers": 3,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 74.9
+      "pct": 75.3
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 15.0
+      "pct": 14.8
     },
     {
       "color": "#f34b7d",
