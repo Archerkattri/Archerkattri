@@ -1,11 +1,11 @@
 {
-  "commits": 554,
+  "commits": 559,
   "followers": 3,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 75.3
+      "pct": 75.2
     },
     {
       "color": "#DA5B0B",
@@ -18,13 +18,13 @@
       "pct": 3.6
     },
     {
-      "color": "#f1e05a",
-      "name": "JavaScript",
+      "color": "#A97BFF",
+      "name": "Kotlin",
       "pct": 1.5
     },
     {
-      "color": "#A97BFF",
-      "name": "Kotlin",
+      "color": "#f1e05a",
+      "name": "JavaScript",
       "pct": 1.5
     },
     {
