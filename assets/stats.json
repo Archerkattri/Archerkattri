@@ -1,11 +1,11 @@
 {
-  "commits": 719,
+  "commits": 726,
   "followers": 3,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 74.3
+      "pct": 74.4
     },
     {
       "color": "#DA5B0B",
@@ -20,7 +20,7 @@
     {
       "color": "#A97BFF",
       "name": "Kotlin",
-      "pct": 2.0
+      "pct": 1.8
     },
     {
       "color": "#f1e05a",
