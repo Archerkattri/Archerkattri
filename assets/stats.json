@@ -1,16 +1,16 @@
 {
-  "commits": 600,
+  "commits": 716,
   "followers": 3,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 75.1
+      "pct": 74.3
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 14.6
+      "pct": 14.5
     },
     {
       "color": "#f34b7d",
@@ -20,7 +20,7 @@
     {
       "color": "#A97BFF",
       "name": "Kotlin",
-      "pct": 1.6
+      "pct": 2.0
     },
     {
       "color": "#f1e05a",
@@ -28,9 +28,9 @@
       "pct": 1.5
     },
     {
-      "color": "#3A4E3A",
-      "name": "Cuda",
-      "pct": 1.1
+      "color": "#e34c26",
+      "name": "HTML",
+      "pct": 1.2
     }
   ],
   "name": "Krishi Attri",
