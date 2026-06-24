@@ -1,40 +1,40 @@
 {
-  "commits": 741,
+  "commits": 1089,
   "followers": 3,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 74.2
+      "pct": 77.7
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 14.5
+      "pct": 12.4
     },
     {
       "color": "#f34b7d",
       "name": "C++",
-      "pct": 3.5
+      "pct": 3.1
     },
     {
       "color": "#A97BFF",
       "name": "Kotlin",
-      "pct": 2.0
+      "pct": 1.8
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 1.6
+      "pct": 1.2
     },
     {
-      "color": "#e34c26",
-      "name": "HTML",
+      "color": "#3A4E3A",
+      "name": "Cuda",
       "pct": 1.2
     }
   ],
   "name": "Krishi Attri",
   "prs": 39,
-  "repos": 25,
+  "repos": 26,
   "stars": 45
 }
