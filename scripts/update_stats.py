@@ -52,7 +52,7 @@ LANG_COLORS = {
 }
 
 # Published packages, for the aggregate download/install count.
-PYPI_PKGS = ("splatreg", "certflow", "mathlas-mcp", "hicache-pp", "aura-splat", "toothprint")
+PYPI_PKGS = ("splatreg", "certflow", "mathlas-mcp", "hicache-pp", "aura-splat", "toothprint", "actionshift")
 COMFY_NODES = ("comfyui-hicache", "comfyui-trellis-hicache", "comfyui-trellis2-hicache")
 
 
