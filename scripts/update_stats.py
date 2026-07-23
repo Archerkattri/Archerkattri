@@ -51,6 +51,41 @@ LANG_COLORS = {
     "HTML": "#e34c26", "Shell": "#89e051", "C": "#555555", "TypeScript": "#3178c6",
 }
 
+# Published packages, for the aggregate download/install count.
+PYPI_PKGS = ("splatreg", "certflow", "mathlas-mcp", "hicache-pp", "aura-splat", "toothprint")
+COMFY_NODES = ("comfyui-hicache", "comfyui-trellis-hicache", "comfyui-trellis2-hicache")
+
+
+def _get_public(url: str):
+    """Unauthenticated JSON GET; None on any failure (kept out of the GitHub path)."""
+    try:
+        req = urllib.request.Request(
+            url, headers={"User-Agent": f"{USER}-live-stats", "Accept": "application/json"}
+        )
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        return None
+
+
+def fetch_downloads(prior: int = 0) -> int:
+    """Aggregate reach = PyPI all-time (pepy) + Comfy registry installs.
+
+    Monotonic: downloads only ever grow, so we return max(fetched, prior). A
+    transient API miss (pepy rate-limits) therefore keeps the last good number
+    instead of dropping the card to a smaller value.
+    """
+    total = 0
+    for pkg in PYPI_PKGS:
+        d = _get_public(f"https://api.pepy.tech/api/v2/projects/{pkg}")
+        if d and isinstance(d.get("total_downloads"), int):
+            total += d["total_downloads"]
+    for nid in COMFY_NODES:
+        d = _get_public(f"https://api.comfy.org/nodes/{nid}")
+        if d and isinstance(d.get("downloads"), int):
+            total += d["downloads"]
+    return max(total, prior)
+
 
 # --------------------------------------------------------------------------- API
 
@@ -146,9 +181,15 @@ def fetch_stats() -> dict:
     prs = _search_count("prs")
     if prs is None:
         prs = cc["totalPullRequestContributions"]
+    prior_dl = 0
+    try:
+        prior_dl = int(json.loads(JSON_PATH.read_text(encoding="utf-8")).get("downloads", 0))
+    except Exception:
+        prior_dl = 0
     return {
         "name": user.get("name") or USER,
         "stars": stars,
+        "downloads": fetch_downloads(prior_dl),
         "commits": commits,
         "prs": prs,
         "repos": user["repositories"]["totalCount"],
@@ -170,9 +211,9 @@ def _fmt(n: int) -> str:
 def build_svg(stats: dict) -> str:
     W, H, PAD = 854, 232, 28
     cells = [
-        ("stars", "Stars earned"), ("commits", "Commits"),
-        ("prs", "Pull requests"), ("repos", "Repositories"),
-        ("followers", "Followers"),
+        ("stars", "Stars"), ("downloads", "Downloads"),
+        ("commits", "Commits"), ("prs", "Pull requests"),
+        ("repos", "Repos"), ("followers", "Followers"),
     ]
     cell_w = (W - 2 * PAD) / len(cells)
     num_y, lab_y = 122, 145
@@ -277,9 +318,9 @@ def main() -> int:
     JSON_PATH.write_text(json.dumps(stats, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     SVG_PATH.write_text(build_svg(stats), encoding="utf-8")
     print(
-        f"stats: {stats['stars']} stars, {stats['commits']} commits, "
-        f"{stats['prs']} PRs, {stats['repos']} repos, {stats['followers']} followers, "
-        f"{len(stats.get('languages', []))} languages "
+        f"stats: {stats['stars']} stars, {stats.get('downloads', 0):,} downloads, "
+        f"{stats['commits']} commits, {stats['prs']} PRs, {stats['repos']} repos, "
+        f"{stats['followers']} followers, {len(stats.get('languages', []))} languages "
         f"(rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M}Z)."
     )
     return 0
