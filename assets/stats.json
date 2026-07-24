@@ -1,17 +1,17 @@
 {
-  "commits": 1610,
+  "commits": 1624,
   "downloads": 7262,
   "followers": 4,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 79.3
+      "pct": 79.4
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 11.0
+      "pct": 10.9
     },
     {
       "color": "#f34b7d",
@@ -36,6 +36,6 @@
   ],
   "name": "Krishi Attri",
   "prs": 49,
-  "repos": 28,
+  "repos": 29,
   "stars": 63
 }
