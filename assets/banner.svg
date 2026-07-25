@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Krishi Attri: robotics, perception, verifiable AI tools">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Krishi Attri: open-source robotics and verifiable AI systems">
   <defs>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1b1e24" stroke-width="1"/>
@@ -66,10 +66,10 @@
   <!-- type -->
   <g font-family="Georgia, 'Times New Roman', serif">
     <text x="80" y="148" fill="#E9E4D6" font-size="58" font-weight="600">Krishi Attri</text>
-    <text x="80" y="196" fill="#3ebfc6" font-size="26" font-style="italic">I give robots a sense of touch.</text>
+    <text x="80" y="196" fill="#3ebfc6" font-size="26" font-style="italic">I build systems that hold up.</text>
   </g>
   <g font-family="ui-monospace,Menlo,monospace" font-size="14" fill="#8a93a0">
-    <text x="80" y="244">VISUO-TACTILE SLAM · 3D GAUSSIAN SPLATTING · VERIFIABLE AI TOOLING</text>
+    <text x="80" y="244">ROBOTICS · VERIFIED ML · OPEN-SOURCE RESEARCH SYSTEMS</text>
     <text x="80" y="270">SNU SRBL → UCF</text>
   </g>
   <!-- accent underline draws in on load -->

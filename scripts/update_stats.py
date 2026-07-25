@@ -25,15 +25,17 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 SVG_PATH = ASSETS / "stats.svg"
+REACH_PATH = ASSETS / "reach.svg"
 JSON_PATH = ASSETS / "stats.json"
 
 USER = os.environ.get("GH_USER", "Archerkattri")
@@ -52,8 +54,11 @@ LANG_COLORS = {
 }
 
 # Published packages, for the aggregate download/install count.
-PYPI_PKGS = ("splatreg", "certflow", "mathlas-mcp", "hicache-pp", "aura-splat", "toothprint", "actionshift")
-COMFY_NODES = ("comfyui-hicache", "comfyui-trellis-hicache", "comfyui-trellis2-hicache")
+PYPI_PKGS = (
+    "splatreg", "certflow", "mathlas-mcp", "hicache-pp",
+    "aura-splat", "toothprint", "actionshift", "stepback",
+)
+ZENODO_RECORDS = (20618389, 20618603, 20618824, 20631475, 21500723, 21500733, 21536385)
 
 
 def _get_public(url: str):
@@ -68,23 +73,151 @@ def _get_public(url: str):
         return None
 
 
-def fetch_downloads(prior: int = 0) -> int:
-    """Aggregate reach = PyPI all-time (pepy) + Comfy registry installs.
+def _get_text(url: str) -> str | None:
+    try:
+        req = urllib.request.Request(
+            url, headers={"User-Agent": f"{USER}-live-stats", "Accept": "text/html"}
+        )
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            return resp.read().decode("utf-8")
+    except Exception:
+        return None
 
-    Monotonic: downloads only ever grow, so we return max(fetched, prior). A
-    transient API miss (pepy rate-limits) therefore keeps the last good number
-    instead of dropping the card to a smaller value.
-    """
-    total = 0
-    for pkg in PYPI_PKGS:
-        d = _get_public(f"https://api.pepy.tech/api/v2/projects/{pkg}")
-        if d and isinstance(d.get("total_downloads"), int):
-            total += d["total_downloads"]
-    for nid in COMFY_NODES:
-        d = _get_public(f"https://api.comfy.org/nodes/{nid}")
-        if d and isinstance(d.get("downloads"), int):
-            total += d["downloads"]
-    return max(total, prior)
+
+def parse_pypi_last_month(page: str) -> int:
+    match = re.search(r"Downloads last month:\s*([\d,]+)", page, re.IGNORECASE)
+    if not match:
+        raise ValueError("PyPI last-month count missing")
+    return int(match.group(1).replace(",", ""))
+
+
+def parse_pepy_lifetime_total(page: str) -> int:
+    match = re.search(r'"name":"Total downloads","value":(\d+)', page)
+    if not match:
+        raise ValueError("Pepy lifetime count missing")
+    return int(match.group(1))
+
+
+def _new_pypi_package_lifetime(package: str) -> int | None:
+    """Use the rolling count as lifetime only when the package is under 30 days old."""
+    metadata = _get_public(f"https://pypi.org/pypi/{package}/json")
+    page = _get_text(f"https://pypistats.org/packages/{package}")
+    if not isinstance(metadata, dict) or not page:
+        return None
+    uploads = [
+        file.get("upload_time_iso_8601")
+        for files in metadata.get("releases", {}).values()
+        for file in files
+        if file.get("upload_time_iso_8601")
+    ]
+    if not uploads:
+        return None
+    first_upload = datetime.fromisoformat(min(uploads).replace("Z", "+00:00"))
+    if datetime.now(timezone.utc) - first_upload > timedelta(days=30):
+        return None
+    try:
+        return parse_pypi_last_month(page)
+    except ValueError:
+        return None
+
+
+def personal_hugging_face_items(items: list[dict]) -> list[dict]:
+    return [item for item in items if "gaussianfeels" not in item.get("id", "").lower()]
+
+
+def is_mcp_so_listing(page: str, repository_url: str) -> bool:
+    return "Project not found" not in page and f'href="{repository_url}"' in page
+
+
+def _prior(prior: dict, key: str) -> int:
+    return int(prior.get(key, 0))
+
+
+def fetch_reach(prior: dict, release_downloads: int, release_stale: bool = False) -> dict:
+    """Fetch each distribution counter independently without mixing time windows."""
+    stale_sources = {"GitHub releases"} if release_stale else set()
+    out = {
+        "pypi_all": _prior(prior, "pypi_all"),
+        "pypi_packages": len(PYPI_PKGS),
+        "huggingface_all": _prior(prior, "huggingface_all"),
+        "huggingface_30d": _prior(prior, "huggingface_30d"),
+        "huggingface_assets": _prior(prior, "huggingface_assets"),
+        "comfy_downloads": _prior(prior, "comfy_downloads"),
+        "comfy_nodes": _prior(prior, "comfy_nodes"),
+        "release_downloads": release_downloads,
+        "zenodo_downloads": _prior(prior, "zenodo_downloads"),
+        "zenodo_views": _prior(prior, "zenodo_views"),
+        "mcp_listings": _prior(prior, "mcp_listings"),
+    }
+
+    pypi_counts = []
+    for package in PYPI_PKGS:
+        page = _get_text(f"https://pepy.tech/projects/{package}")
+        if page:
+            try:
+                pypi_counts.append(parse_pepy_lifetime_total(page))
+                continue
+            except ValueError:
+                pass
+        new_package_total = _new_pypi_package_lifetime(package)
+        if new_package_total is not None:
+            pypi_counts.append(new_package_total)
+    if len(pypi_counts) == len(PYPI_PKGS):
+        out["pypi_all"] = sum(pypi_counts)
+    else:
+        stale_sources.add("PyPI")
+
+    models = _get_public(
+        "https://huggingface.co/api/models?author=kattri15&limit=100"
+        "&expand=downloads&expand=downloadsAllTime"
+    )
+    datasets = _get_public(
+        "https://huggingface.co/api/datasets?author=kattri15&limit=100"
+        "&expand=downloads&expand=downloadsAllTime"
+    )
+    if isinstance(models, list) and isinstance(datasets, list):
+        hf_items = personal_hugging_face_items(models + datasets)
+        out["huggingface_all"] = sum(int(item.get("downloadsAllTime", 0)) for item in hf_items)
+        out["huggingface_30d"] = sum(int(item.get("downloads", 0)) for item in hf_items)
+        out["huggingface_assets"] = len(hf_items)
+    else:
+        stale_sources.add("Hugging Face")
+
+    comfy = _get_public("https://api.comfy.org/publishers/archerkattri/nodes")
+    if isinstance(comfy, list):
+        out["comfy_downloads"] = sum(int(node.get("downloads", 0)) for node in comfy)
+        out["comfy_nodes"] = len(comfy)
+    else:
+        stale_sources.add("Comfy")
+
+    records = [_get_public(f"https://zenodo.org/api/records/{record}") for record in ZENODO_RECORDS]
+    if all(isinstance(record, dict) for record in records):
+        out["zenodo_downloads"] = sum(int(record.get("stats", {}).get("downloads", 0)) for record in records)
+        out["zenodo_views"] = sum(int(record.get("stats", {}).get("views", 0)) for record in records)
+    else:
+        stale_sources.add("Zenodo")
+
+    official = _get_public(
+        "https://registry.modelcontextprotocol.io/v0.1/servers"
+        "?search=io.github.Archerkattri/mathlas"
+    )
+    glama = _get_public("https://glama.ai/api/mcp/v1/servers/Archerkattri/mathlas")
+    mcp_so = _get_text("https://chat.mcp.so/en/server/mathlas/Archerkattri")
+    checks = [
+        isinstance(official, dict) and any(
+            item.get("server", {}).get("name") == "io.github.Archerkattri/mathlas"
+            for item in official.get("servers", [])
+        ),
+        isinstance(glama, dict)
+        and glama.get("repository", {}).get("url") == "https://github.com/Archerkattri/mathlas",
+        bool(mcp_so) and is_mcp_so_listing(mcp_so, "https://github.com/Archerkattri/mathlas"),
+    ]
+    if official is not None and glama is not None and mcp_so is not None:
+        out["mcp_listings"] = sum(bool(value) for value in checks)
+    else:
+        stale_sources.add("MCP")
+    out["stale_sources"] = sorted(stale_sources)
+    return out
 
 
 # --------------------------------------------------------------------------- API
@@ -121,10 +254,11 @@ query($login: String!) {
       restrictedContributionsCount
       totalPullRequestContributions
     }
-    repositories(first: 100, ownerAffiliations: OWNER, isFork: false,
+    repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC,
                  orderBy: {field: STARGAZERS, direction: DESC}) {
       totalCount
       nodes {
+        nameWithOwner
         stargazerCount
         languages(first: 8, orderBy: {field: SIZE, direction: DESC}) {
           edges { size node { name color } }
@@ -148,12 +282,71 @@ def _search_count(qualifier: str) -> int | None:
         return None
 
 
+def owner_contributions(contributors: list[dict], owner: str) -> int:
+    owner_key = owner.lower()
+    return sum(
+        int(item.get("contributions", 0))
+        for item in contributors
+        if item.get("login", "").lower() == owner_key
+    )
+
+
+def _owned_repo_commits(repositories: list[dict], prior: int = 0) -> tuple[int, bool]:
+    total = 0
+    try:
+        for repository in repositories:
+            page = 1
+            while True:
+                try:
+                    contributors = _req(
+                        f"{API}/repos/{repository['nameWithOwner']}/contributors"
+                        f"?anon=false&per_page=100&page={page}"
+                    )
+                except urllib.error.HTTPError as error:
+                    if error.code == 409:
+                        break
+                    raise
+                total += owner_contributions(contributors, USER)
+                if len(contributors) < 100:
+                    break
+                page += 1
+        return total, False
+    except (urllib.error.HTTPError, urllib.error.URLError, ValueError, KeyError, TypeError):
+        return prior, True
+
+
+def _release_downloads(repositories: list[dict], prior: int = 0) -> tuple[int, bool]:
+    total = 0
+    try:
+        for repository in repositories:
+            page = 1
+            while True:
+                releases = _req(
+                    f"{API}/repos/{repository['nameWithOwner']}/releases?per_page=100&page={page}"
+                )
+                total += sum(
+                    int(asset.get("download_count", 0))
+                    for release in releases
+                    for asset in release.get("assets", [])
+                )
+                if len(releases) < 100:
+                    break
+                page += 1
+        return total, False
+    except (urllib.error.HTTPError, urllib.error.URLError, ValueError, KeyError, TypeError):
+        return prior, True
+
+
 def fetch_stats() -> dict:
     if not TOKEN:
         raise SystemExit("update_stats: GITHUB_TOKEN is required (run in GitHub Actions).")
     data = _graphql(_QUERY, {"login": USER})
     user = data["user"]
     repos = user["repositories"]["nodes"]
+    try:
+        prior = json.loads(JSON_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        prior = {}
 
     stars = sum(r["stargazerCount"] for r in repos)
     # Aggregate language bytes across all owned repos.
@@ -175,27 +368,29 @@ def fetch_stats() -> dict:
     # All-time counts via search; if search is unavailable, fall back to the
     # GraphQL contribution totals (last 12 months) so the card never shows 0.
     cc = user["contributionsCollection"]
-    commits = _search_count("commits")
-    if commits is None:
-        commits = cc["totalCommitContributions"] + cc["restrictedContributionsCount"]
+    commits, commits_stale = _owned_repo_commits(repos, int(prior.get("commits", 0)))
+    if not repos and commits == 0:
+        commits = cc["totalCommitContributions"]
     prs = _search_count("prs")
     if prs is None:
         prs = cc["totalPullRequestContributions"]
-    prior_dl = 0
-    try:
-        prior_dl = int(json.loads(JSON_PATH.read_text(encoding="utf-8")).get("downloads", 0))
-    except Exception:
-        prior_dl = 0
-    return {
+    release_downloads, releases_stale = _release_downloads(
+        repos, int(prior.get("release_downloads", 0))
+    )
+    stats = {
         "name": user.get("name") or USER,
         "stars": stars,
-        "downloads": fetch_downloads(prior_dl),
         "commits": commits,
         "prs": prs,
         "repos": user["repositories"]["totalCount"],
         "followers": user["followers"]["totalCount"],
+        "release_downloads": release_downloads,
         "languages": languages,
     }
+    stats.update(fetch_reach(prior, release_downloads, releases_stale))
+    if commits_stale:
+        stats["stale_sources"] = sorted(set(stats["stale_sources"]) | {"GitHub commits"})
+    return stats
 
 
 # ----------------------------------------------------------------------- render
@@ -211,12 +406,21 @@ def _fmt(n: int) -> str:
 def build_svg(stats: dict) -> str:
     W, H, PAD = 854, 232, 28
     cells = [
-        ("stars", "Stars"), ("downloads", "Downloads"),
-        ("commits", "Commits"), ("prs", "Pull requests"),
-        ("repos", "Repos"), ("followers", "Followers"),
+        ("stars", "Stars"), ("commits", "Authored commits"),
+        ("prs", "Pull requests"), ("repos", "Owned repos"),
+        ("followers", "Followers"), ("release_downloads", "Release downloads"),
     ]
     cell_w = (W - 2 * PAD) / len(cells)
     num_y, lab_y = 122, 145
+    github_stale = [
+        source for source in stats.get("stale_sources", [])
+        if source.startswith("GitHub")
+    ]
+    sync_label = (
+        f"CACHED FALLBACK · {', '.join(github_stale)}"
+        if github_stale
+        else "LIVE GITHUB STATS · SELF-SYNCED ON GITHUB ACTIONS"
+    )
 
     parts: list[str] = []
     parts.append(
@@ -239,7 +443,7 @@ def build_svg(stats: dict) -> str:
         f'<text x="{PAD}" y="46" font-family="Georgia,serif" font-size="23" '
         f'font-weight="600" fill="{CREAM}">{_esc(str(stats.get("name") or USER))}</text>'
         f'<text x="{PAD}" y="67" font-family="ui-monospace,Menlo,monospace" '
-        f'font-size="11.5" fill="{GREY}">LIVE GITHUB STATS &#183; SELF-SYNCED ON GITHUB ACTIONS</text>'
+        f'font-size="11.5" fill="{GREY}">{_esc(sync_label)}</text>'
     )
     dot_x = W - PAD - 52
     parts.append(
@@ -305,6 +509,88 @@ def build_svg(stats: dict) -> str:
     return "\n".join(parts) + "\n"
 
 
+def build_reach_svg(stats: dict) -> str:
+    """Render distribution counters without combining incompatible windows."""
+    width, height, pad = 854, 224, 28
+    cells = [
+        ("pypi_all", "PyPI &#183; all time", f"{stats.get('pypi_packages', 0)} packages"),
+        (
+            "huggingface_all",
+            "Hugging Face &#183; all time",
+            f"{_fmt(int(stats.get('huggingface_30d', 0)))} in 30d",
+        ),
+        ("comfy_downloads", "Comfy &#183; all time", f"{stats.get('comfy_nodes', 0)} nodes"),
+        ("release_downloads", "Release assets", "GitHub · all time"),
+        ("zenodo_downloads", "Zenodo &#183; all time", f"{_fmt(int(stats.get('zenodo_views', 0)))} views"),
+        ("mcp_listings", "MCP directories", "Official · Glama · mcp.so"),
+    ]
+    cell_w = (width - 2 * pad) / len(cells)
+    stale_sources = stats.get("stale_sources", [])
+    status_line = (
+        f"CACHED FALLBACK · {', '.join(stale_sources)}"
+        if stale_sources
+        else "LIVE COUNTERS · EACH WINDOW LABELLED · NO MIXED TOTAL"
+    )
+    parts = [
+        (
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+            f'viewBox="0 0 {width} {height}" role="img" '
+            'aria-label="Live downloads and distribution reach for Krishi Attri">'
+        ),
+        (
+            '<defs><pattern id="g" width="34" height="34" patternUnits="userSpaceOnUse">'
+            f'<path d="M 34 0 L 0 0 0 34" fill="none" stroke="{GRID}" stroke-width="1"/>'
+            '</pattern></defs>'
+        ),
+        f'<rect width="{width}" height="{height}" rx="14" fill="{BG}"/>',
+        f'<rect width="{width}" height="{height}" rx="14" fill="url(#g)"/>',
+        (
+            f'<rect x="0.5" y="0.5" width="{width-1}" height="{height-1}" rx="14" '
+            f'fill="none" stroke="{GRID}" stroke-width="1"/>'
+        ),
+        (
+            f'<text x="{pad}" y="43" font-family="Georgia,serif" font-size="22" '
+            f'font-weight="600" fill="{CREAM}">Distribution reach</text>'
+        ),
+        (
+            f'<text x="{pad}" y="64" font-family="ui-monospace,Menlo,monospace" '
+            f'font-size="11" fill="{GREY}">{_esc(status_line)}</text>'
+        ),
+    ]
+    for index, (key, label, note) in enumerate(cells):
+        center = pad + cell_w * (index + 0.5)
+        parts.extend([
+            (
+                f'<text x="{center:.1f}" y="119" text-anchor="middle" '
+                f'font-family="Georgia,serif" font-size="29" font-weight="700" '
+                f'fill="{TEAL}">{_fmt(int(stats.get(key, 0)))}</text>'
+            ),
+            (
+                f'<text x="{center:.1f}" y="143" text-anchor="middle" '
+                f'font-family="ui-monospace,Menlo,monospace" font-size="10.5" '
+                f'fill="{TEXT}">{label}</text>'
+            ),
+            (
+                f'<text x="{center:.1f}" y="161" text-anchor="middle" '
+                f'font-family="ui-monospace,Menlo,monospace" font-size="9.5" '
+                f'fill="{GREY}">{_esc(note)}</text>'
+            ),
+        ])
+        if index:
+            separator = pad + cell_w * index
+            parts.append(
+                f'<line x1="{separator:.1f}" y1="92" x2="{separator:.1f}" y2="166" '
+                f'stroke="{GRID}" stroke-width="1"/>'
+            )
+    parts.append(
+        f'<text x="{width-pad}" y="{height-16}" text-anchor="end" '
+        f'font-family="ui-monospace,Menlo,monospace" font-size="10" fill="{GREY}">'
+        'PyPI/HF/Comfy/GitHub/Zenodo cumulative &#183; HF 30d shown separately &#183; MCP listing status</text>'
+    )
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
 # ------------------------------------------------------------------------- main
 
 def main() -> int:
@@ -317,8 +603,11 @@ def main() -> int:
     # no timestamp for exactly that reason.
     JSON_PATH.write_text(json.dumps(stats, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     SVG_PATH.write_text(build_svg(stats), encoding="utf-8")
+    REACH_PATH.write_text(build_reach_svg(stats), encoding="utf-8")
     print(
-        f"stats: {stats['stars']} stars, {stats.get('downloads', 0):,} downloads, "
+        f"stats: {stats['stars']} stars, {stats.get('pypi_all', 0):,} PyPI all-time, "
+        f"{stats.get('huggingface_all', 0):,} HF all-time, "
+        f"{stats.get('comfy_downloads', 0):,} Comfy downloads, "
         f"{stats['commits']} commits, {stats['prs']} PRs, {stats['repos']} repos, "
         f"{stats['followers']} followers, {len(stats.get('languages', []))} languages "
         f"(rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M}Z)."

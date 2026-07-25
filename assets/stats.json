@@ -1,7 +1,11 @@
 {
-  "commits": 1690,
-  "downloads": 7262,
+  "comfy_downloads": 2356,
+  "comfy_nodes": 3,
+  "commits": 1692,
   "followers": 5,
+  "huggingface_30d": 129,
+  "huggingface_all": 168,
+  "huggingface_assets": 4,
   "languages": [
     {
       "color": "#3572A5",
@@ -26,7 +30,7 @@
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 1.1
+      "pct": 1.2
     },
     {
       "color": "#3A4E3A",
@@ -34,8 +38,15 @@
       "pct": 1.1
     }
   ],
+  "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 52,
+  "pypi_all": 16280,
+  "pypi_packages": 8,
+  "release_downloads": 111,
   "repos": 29,
-  "stars": 64
+  "stale_sources": [],
+  "stars": 64,
+  "zenodo_downloads": 53,
+  "zenodo_views": 290
 }

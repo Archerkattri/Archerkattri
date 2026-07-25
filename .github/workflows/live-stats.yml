@@ -22,6 +22,7 @@ on:
     branches: [master]
     paths:
       - scripts/update_stats.py
+      - tests/test_update_stats.py
       - .github/workflows/live-stats.yml
 
 permissions:
@@ -42,6 +43,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Test the stats collector
+        run: python -m unittest discover -s tests -v
+
       - name: Render the live stats card
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -50,12 +54,12 @@ jobs:
 
       - name: Commit only if a number changed
         run: |
-          if git diff --quiet -- assets/stats.svg assets/stats.json; then
+          git add assets/stats.svg assets/reach.svg assets/stats.json
+          if git diff --cached --quiet; then
             echo "No stat change; nothing to commit."
             exit 0
           fi
           git config user.name "Krishi Attri"
           git config user.email "krishiattriwork@gmail.com"
-          git add assets/stats.svg assets/stats.json
           git commit -m "Live stats sync"
           git push
