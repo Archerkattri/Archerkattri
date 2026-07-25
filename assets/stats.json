@@ -1,12 +1,12 @@
 {
-  "commits": 1635,
+  "commits": 1680,
   "downloads": 7262,
-  "followers": 4,
+  "followers": 5,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 79.4
+      "pct": 79.3
     },
     {
       "color": "#DA5B0B",
@@ -24,13 +24,13 @@
       "pct": 1.6
     },
     {
-      "color": "#3A4E3A",
-      "name": "Cuda",
+      "color": "#f1e05a",
+      "name": "JavaScript",
       "pct": 1.1
     },
     {
-      "color": "#f1e05a",
-      "name": "JavaScript",
+      "color": "#3A4E3A",
+      "name": "Cuda",
       "pct": 1.1
     }
   ],
