@@ -74,7 +74,7 @@
 > files and best-effort conversation state without touching `HEAD`, staging, or
 > your branch. `pip install stepback`
 > [![PyPI](https://img.shields.io/pypi/v/stepback?style=flat-square&color=3ebfc6&labelColor=0C0D10)](https://pypi.org/project/stepback/)
-> [![Downloads](https://img.shields.io/pepy/dt/stepback?style=flat-square&color=8a93a0&labelColor=0C0D10&label=installs)](https://pepy.tech/project/stepback)
+> [![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FArcherkattri%2FArcherkattri%2Fmaster%2Fassets%2Fstats.json&query=%24.pypi_projects.stepback&label=lifetime%20downloads&style=flat-square&color=8a93a0&labelColor=0C0D10)](https://pypi.org/project/stepback/)
 > [![Stars](https://img.shields.io/github/stars/Archerkattri/stepback?style=flat-square&color=3ebfc6&labelColor=0C0D10)](https://github.com/Archerkattri/stepback/stargazers)
 
 | project | what it does |

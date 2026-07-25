@@ -20,6 +20,19 @@ class LiveStatsTests(unittest.TestCase):
         html = "<p>Downloads last month:\n2,097<br></p>"
         self.assertEqual(update_stats.parse_pypi_last_month(html), 2097)
 
+    def test_pypi_lifetime_counts_keep_per_package_values_and_new_package_fallback(self):
+        pepy_page = '"name":"Total downloads","value":5205'
+        pages = {
+            "https://pepy.tech/projects/splatreg": pepy_page,
+            "https://pepy.tech/projects/stepback": None,
+        }
+        counts = update_stats.fetch_pypi_lifetime_counts(
+            ("splatreg", "stepback"),
+            get_text=pages.get,
+            new_package_lifetime=lambda package: 106 if package == "stepback" else None,
+        )
+        self.assertEqual(counts, {"splatreg": 5205, "stepback": 106})
+
     def test_mcp_so_requires_exact_repository_and_real_page(self):
         repo = "https://github.com/Archerkattri/mathlas"
         self.assertTrue(update_stats.is_mcp_so_listing(f'<a href="{repo}">source</a>', repo))

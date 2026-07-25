@@ -43,6 +43,16 @@
   "prs": 54,
   "pypi_all": 16280,
   "pypi_packages": 8,
+  "pypi_projects": {
+    "actionshift": 322,
+    "aura-splat": 309,
+    "certflow": 1643,
+    "hicache-pp": 3025,
+    "mathlas-mcp": 5360,
+    "splatreg": 5205,
+    "stepback": 106,
+    "toothprint": 310
+  },
   "release_downloads": 111,
   "repos": 29,
   "stale_sources": [],

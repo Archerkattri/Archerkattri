@@ -121,6 +121,29 @@ def _new_pypi_package_lifetime(package: str) -> int | None:
         return None
 
 
+def fetch_pypi_lifetime_counts(
+    packages: tuple[str, ...],
+    get_text=None,
+    new_package_lifetime=None,
+) -> dict[str, int]:
+    """Return exact lifetime totals, retaining each package for live badges."""
+    get_text = get_text or _get_text
+    new_package_lifetime = new_package_lifetime or _new_pypi_package_lifetime
+    counts = {}
+    for package in packages:
+        page = get_text(f"https://pepy.tech/projects/{package}")
+        if page:
+            try:
+                counts[package] = parse_pepy_lifetime_total(page)
+                continue
+            except ValueError:
+                pass
+        fallback = new_package_lifetime(package)
+        if fallback is not None:
+            counts[package] = fallback
+    return counts
+
+
 def personal_hugging_face_items(items: list[dict]) -> list[dict]:
     return [item for item in items if "gaussianfeels" not in item.get("id", "").lower()]
 
@@ -139,6 +162,11 @@ def fetch_reach(prior: dict, release_downloads: int, release_stale: bool = False
     out = {
         "pypi_all": _prior(prior, "pypi_all"),
         "pypi_packages": len(PYPI_PKGS),
+        "pypi_projects": (
+            prior.get("pypi_projects", {})
+            if isinstance(prior.get("pypi_projects", {}), dict)
+            else {}
+        ),
         "huggingface_all": _prior(prior, "huggingface_all"),
         "huggingface_30d": _prior(prior, "huggingface_30d"),
         "huggingface_assets": _prior(prior, "huggingface_assets"),
@@ -150,20 +178,10 @@ def fetch_reach(prior: dict, release_downloads: int, release_stale: bool = False
         "mcp_listings": _prior(prior, "mcp_listings"),
     }
 
-    pypi_counts = []
-    for package in PYPI_PKGS:
-        page = _get_text(f"https://pepy.tech/projects/{package}")
-        if page:
-            try:
-                pypi_counts.append(parse_pepy_lifetime_total(page))
-                continue
-            except ValueError:
-                pass
-        new_package_total = _new_pypi_package_lifetime(package)
-        if new_package_total is not None:
-            pypi_counts.append(new_package_total)
+    pypi_counts = fetch_pypi_lifetime_counts(PYPI_PKGS)
     if len(pypi_counts) == len(PYPI_PKGS):
-        out["pypi_all"] = sum(pypi_counts)
+        out["pypi_all"] = sum(pypi_counts.values())
+        out["pypi_projects"] = pypi_counts
     else:
         stale_sources.add("PyPI")
 
