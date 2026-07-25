@@ -69,6 +69,14 @@
 
 > Research that ends as something you can `pip install`, cite by DOI, and reproduce. Every badge below is live: version, lifetime downloads, and stars update from PyPI/Pepy and the GitHub API.
 
+> **NEW — [StepBack](https://github.com/Archerkattri/stepback): git time-travel for AI coding agents.**
+> Checkpoint every edit from Claude Code, Codex, aider, or any command; rewind the
+> files and best-effort conversation state without touching `HEAD`, staging, or
+> your branch. `pip install stepback`
+> [![PyPI](https://img.shields.io/pypi/v/stepback?style=flat-square&color=3ebfc6&labelColor=0C0D10)](https://pypi.org/project/stepback/)
+> [![Downloads](https://img.shields.io/pepy/dt/stepback?style=flat-square&color=8a93a0&labelColor=0C0D10&label=installs)](https://pepy.tech/project/stepback)
+> [![Stars](https://img.shields.io/github/stars/Archerkattri/stepback?style=flat-square&color=3ebfc6&labelColor=0C0D10)](https://github.com/Archerkattri/stepback/stargazers)
+
 | project | what it does |
 |---|---|
 | 🧩 [**splatreg**](https://github.com/Archerkattri/splatreg) <br> <a href="https://pypi.org/project/splatreg/"><img src="https://img.shields.io/pypi/v/splatreg?style=flat-square&color=3ebfc6&labelColor=0C0D10" alt="PyPI"></a> <a href="https://pypi.org/project/splatreg/"><img src="https://img.shields.io/pepy/dt/splatreg?style=flat-square&color=8a93a0&labelColor=0C0D10&label=installs" alt="PyPI downloads"></a> <a href="https://github.com/Archerkattri/splatreg/stargazers"><img src="https://img.shields.io/github/stars/Archerkattri/splatreg?style=flat-square&color=3ebfc6&labelColor=0C0D10&logo=github&logoColor=3ebfc6" alt="GitHub stars"></a> <a href="https://doi.org/10.31224/7313"><img src="https://img.shields.io/badge/paper-engrXiv-3ebfc6?style=flat-square&labelColor=0C0D10" alt="engrXiv paper"></a> <a href="https://doi.org/10.5281/zenodo.20618389"><img src="https://img.shields.io/badge/archive-Zenodo-8a93a0?style=flat-square&labelColor=0C0D10" alt="Zenodo archive"></a> | Register Gaussian splats: align and merge two 3DGS scans into one SE(3)/Sim(3) frame, recover scale, dedupe the overlap. CLI plus a pure-PyTorch API. [Docs.](https://archerkattri.github.io/splatreg/) |
