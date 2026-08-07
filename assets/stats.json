@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 3165,
+  "comfy_downloads": 3172,
   "comfy_nodes": 3,
-  "commits": 1875,
+  "commits": 1876,
   "followers": 4,
   "huggingface_30d": 280,
   "huggingface_all": 360,
@@ -41,7 +41,7 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 54,
-  "pypi_all": 19816,
+  "pypi_all": 19820,
   "pypi_packages": 8,
   "pypi_projects": {
     "actionshift": 502,
@@ -51,7 +51,7 @@
     "mathlas-mcp": 5724,
     "splatreg": 5398,
     "stepback": 1267,
-    "toothprint": 408
+    "toothprint": 412
   },
   "release_downloads": 117,
   "repos": 29,
