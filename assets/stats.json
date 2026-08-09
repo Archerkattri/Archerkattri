@@ -41,11 +41,11 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 54,
-  "pypi_all": 20071,
+  "pypi_all": 20084,
   "pypi_packages": 8,
   "pypi_projects": {
-    "actionshift": 507,
-    "aura-splat": 467,
+    "actionshift": 514,
+    "aura-splat": 473,
     "certflow": 1772,
     "hicache-pp": 4383,
     "mathlas-mcp": 5813,
@@ -55,7 +55,9 @@
   },
   "release_downloads": 120,
   "repos": 29,
-  "stale_sources": [],
+  "stale_sources": [
+    "MCP"
+  ],
   "stars": 71,
   "zenodo_downloads": 64,
   "zenodo_views": 348
