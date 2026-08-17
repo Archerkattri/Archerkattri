@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 3829,
+  "comfy_downloads": 3830,
   "comfy_nodes": 3,
-  "commits": 2163,
+  "commits": 2164,
   "followers": 5,
   "huggingface_30d": 357,
   "huggingface_all": 443,
@@ -58,5 +58,5 @@
   "stale_sources": [],
   "stars": 74,
   "zenodo_downloads": 68,
-  "zenodo_views": 398
+  "zenodo_views": 399
 }
