@@ -4,7 +4,7 @@
 <rect width="854" height="224" rx="14" fill="url(#g)"/>
 <rect x="0.5" y="0.5" width="853" height="223" rx="14" fill="none" stroke="#1b1e24" stroke-width="1"/>
 <text x="28" y="43" font-family="Georgia,serif" font-size="22" font-weight="600" fill="#E9E4D6">Distribution reach</text>
-<text x="28" y="64" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#8a93a0">LIVE COUNTERS · EACH WINDOW LABELLED · NO MIXED TOTAL</text>
+<text x="28" y="64" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#8a93a0">CACHED FALLBACK · Zenodo</text>
 <text x="94.5" y="119" text-anchor="middle" font-family="Georgia,serif" font-size="29" font-weight="700" fill="#3ebfc6">21,999</text>
 <text x="94.5" y="143" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="10.5" fill="#c9d1d9">PyPI &#183; all time</text>
 <text x="94.5" y="161" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9.5" fill="#8a93a0">8 packages</text>
