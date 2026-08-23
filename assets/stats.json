@@ -55,9 +55,7 @@
   },
   "release_downloads": 134,
   "repos": 29,
-  "stale_sources": [
-    "Zenodo"
-  ],
+  "stale_sources": [],
   "stars": 77,
   "zenodo_downloads": 68,
   "zenodo_views": 411
