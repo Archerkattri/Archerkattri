@@ -55,7 +55,9 @@
   },
   "release_downloads": 142,
   "repos": 29,
-  "stale_sources": [],
+  "stale_sources": [
+    "MCP"
+  ],
   "stars": 77,
   "zenodo_downloads": 69,
   "zenodo_views": 416
