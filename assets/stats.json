@@ -1,5 +1,5 @@
 {
-  "comfy_downloads": 4268,
+  "comfy_downloads": 4270,
   "comfy_nodes": 3,
   "commits": 2422,
   "followers": 7,
@@ -55,9 +55,7 @@
   },
   "release_downloads": 142,
   "repos": 29,
-  "stale_sources": [
-    "MCP"
-  ],
+  "stale_sources": [],
   "stars": 77,
   "zenodo_downloads": 69,
   "zenodo_views": 416
