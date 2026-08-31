@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 4509,
+  "comfy_downloads": 4518,
   "comfy_nodes": 3,
-  "commits": 2469,
+  "commits": 2470,
   "followers": 7,
   "huggingface_30d": 239,
   "huggingface_all": 494,
@@ -41,10 +41,10 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 54,
-  "pypi_all": 23592,
+  "pypi_all": 23594,
   "pypi_packages": 8,
   "pypi_projects": {
-    "actionshift": 628,
+    "actionshift": 630,
     "aura-splat": 568,
     "certflow": 1971,
     "hicache-pp": 5946,
