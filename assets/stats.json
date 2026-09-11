@@ -1,10 +1,10 @@
 {
-  "comfy_downloads": 5129,
+  "comfy_downloads": 5145,
   "comfy_nodes": 3,
-  "commits": 2548,
+  "commits": 2549,
   "followers": 7,
-  "huggingface_30d": 102,
-  "huggingface_all": 529,
+  "huggingface_30d": 104,
+  "huggingface_all": 534,
   "huggingface_assets": 4,
   "languages": [
     {
@@ -59,6 +59,6 @@
     "MCP"
   ],
   "stars": 83,
-  "zenodo_downloads": 79,
+  "zenodo_downloads": 80,
   "zenodo_views": 468
 }
