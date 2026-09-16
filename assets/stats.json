@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5308,
+  "comfy_downloads": 5311,
   "comfy_nodes": 3,
-  "commits": 2580,
+  "commits": 2584,
   "followers": 7,
   "huggingface_30d": 127,
   "huggingface_all": 567,
@@ -10,32 +10,32 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 79.3
-    },
-    {
-      "color": "#DA5B0B",
-      "name": "Jupyter Notebook",
-      "pct": 10.9
-    },
-    {
-      "color": "#f34b7d",
-      "name": "C++",
-      "pct": 3.3
-    },
-    {
-      "color": "#A97BFF",
-      "name": "Kotlin",
-      "pct": 1.6
+      "pct": 71.1
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 1.2
+      "pct": 11.3
+    },
+    {
+      "color": "#DA5B0B",
+      "name": "Jupyter Notebook",
+      "pct": 9.8
+    },
+    {
+      "color": "#f34b7d",
+      "name": "C++",
+      "pct": 3.0
+    },
+    {
+      "color": "#A97BFF",
+      "name": "Kotlin",
+      "pct": 1.4
     },
     {
       "color": "#3A4E3A",
       "name": "Cuda",
-      "pct": 1.1
+      "pct": 1.0
     }
   ],
   "mcp_listings": 3,
@@ -54,7 +54,7 @@
     "toothprint": 516
   },
   "release_downloads": 150,
-  "repos": 29,
+  "repos": 30,
   "stale_sources": [
     "MCP"
   ],
