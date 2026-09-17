@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5360,
+  "comfy_downloads": 5361,
   "comfy_nodes": 3,
-  "commits": 2592,
+  "commits": 2620,
   "followers": 7,
   "huggingface_30d": 134,
   "huggingface_all": 578,
@@ -10,17 +10,17 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 71.1
+      "pct": 70.7
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 11.3
+      "pct": 11.7
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 9.8
+      "pct": 9.7
     },
     {
       "color": "#f34b7d",
@@ -54,7 +54,7 @@
     "toothprint": 516
   },
   "release_downloads": 150,
-  "repos": 30,
+  "repos": 31,
   "stale_sources": [
     "MCP",
     "Zenodo"
