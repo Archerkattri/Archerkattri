@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5383,
+  "comfy_downloads": 5388,
   "comfy_nodes": 3,
-  "commits": 2726,
+  "commits": 2773,
   "followers": 7,
   "huggingface_30d": 134,
   "huggingface_all": 581,
@@ -10,7 +10,7 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 71.2
+      "pct": 71.1
     },
     {
       "color": "#f1e05a",
@@ -33,8 +33,8 @@
       "pct": 1.4
     },
     {
-      "color": "#3A4E3A",
-      "name": "Cuda",
+      "color": "#e34c26",
+      "name": "HTML",
       "pct": 1.0
     }
   ],
