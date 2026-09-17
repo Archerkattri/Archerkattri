@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5380,
+  "comfy_downloads": 5383,
   "comfy_nodes": 3,
-  "commits": 2629,
+  "commits": 2726,
   "followers": 7,
   "huggingface_30d": 134,
   "huggingface_all": 581,
@@ -10,22 +10,22 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 70.6
+      "pct": 71.2
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 11.7
+      "pct": 11.5
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 9.7
+      "pct": 9.5
     },
     {
       "color": "#f34b7d",
       "name": "C++",
-      "pct": 3.0
+      "pct": 2.9
     },
     {
       "color": "#A97BFF",
