@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5388,
+  "comfy_downloads": 5391,
   "comfy_nodes": 3,
-  "commits": 2773,
+  "commits": 2795,
   "followers": 7,
   "huggingface_30d": 134,
   "huggingface_all": 581,
@@ -10,7 +10,7 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 71.1
+      "pct": 71.2
     },
     {
       "color": "#f1e05a",
