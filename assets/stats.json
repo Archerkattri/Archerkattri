@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5542,
+  "comfy_downloads": 5555,
   "comfy_nodes": 3,
-  "commits": 2951,
+  "commits": 2954,
   "followers": 7,
   "huggingface_30d": 136,
   "huggingface_all": 598,
@@ -10,17 +10,17 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 71.2
+      "pct": 71.0
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 11.5
+      "pct": 11.7
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 9.5
+      "pct": 9.4
     },
     {
       "color": "#f34b7d",
