@@ -1,9 +1,9 @@
 {
-  "comfy_downloads": 5732,
+  "comfy_downloads": 5747,
   "comfy_nodes": 3,
-  "commits": 2984,
+  "commits": 2985,
   "followers": 7,
-  "huggingface_30d": 133,
+  "huggingface_30d": 132,
   "huggingface_all": 622,
   "huggingface_assets": 4,
   "languages": [
@@ -41,24 +41,24 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 54,
-  "pypi_all": 28569,
+  "pypi_all": 28662,
   "pypi_packages": 8,
   "pypi_projects": {
-    "actionshift": 1090,
-    "aura-splat": 992,
-    "certflow": 2454,
-    "hicache-pp": 7317,
-    "mathlas-mcp": 7548,
-    "splatreg": 6399,
-    "stepback": 1901,
-    "toothprint": 868
+    "actionshift": 1101,
+    "aura-splat": 1007,
+    "certflow": 2468,
+    "hicache-pp": 7336,
+    "mathlas-mcp": 7568,
+    "splatreg": 6404,
+    "stepback": 1906,
+    "toothprint": 872
   },
-  "release_downloads": 230,
+  "release_downloads": 233,
   "repos": 32,
   "stale_sources": [
     "MCP"
   ],
   "stars": 85,
-  "zenodo_downloads": 101,
+  "zenodo_downloads": 102,
   "zenodo_views": 572
 }
