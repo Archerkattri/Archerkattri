@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 5948,
+  "comfy_downloads": 5957,
   "comfy_nodes": 3,
-  "commits": 3007,
+  "commits": 3008,
   "followers": 7,
   "huggingface_30d": 137,
   "huggingface_all": 633,
@@ -53,7 +53,7 @@
     "stepback": 1947,
     "toothprint": 899
   },
-  "release_downloads": 296,
+  "release_downloads": 306,
   "repos": 32,
   "stale_sources": [
     "MCP"
