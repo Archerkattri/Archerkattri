@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 6113,
+  "comfy_downloads": 6116,
   "comfy_nodes": 3,
-  "commits": 3033,
+  "commits": 3038,
   "followers": 7,
   "huggingface_30d": 144,
   "huggingface_all": 658,
@@ -10,12 +10,12 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 68.0
+      "pct": 67.9
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 12.3
+      "pct": 12.5
     },
     {
       "color": "#DA5B0B",
@@ -25,7 +25,7 @@
     {
       "color": "#f34b7d",
       "name": "C++",
-      "pct": 5.0
+      "pct": 5.1
     },
     {
       "color": "#A97BFF",
@@ -41,24 +41,24 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 54,
-  "pypi_all": 29601,
+  "pypi_all": 29702,
   "pypi_packages": 8,
   "pypi_projects": {
-    "actionshift": 1196,
-    "aura-splat": 1082,
-    "certflow": 2542,
-    "hicache-pp": 7634,
-    "mathlas-mcp": 7735,
+    "actionshift": 1209,
+    "aura-splat": 1089,
+    "certflow": 2566,
+    "hicache-pp": 7660,
+    "mathlas-mcp": 7766,
     "splatreg": 6524,
     "stepback": 1975,
     "toothprint": 913
   },
-  "release_downloads": 356,
+  "release_downloads": 361,
   "repos": 33,
   "stale_sources": [
     "MCP"
   ],
-  "stars": 93,
+  "stars": 96,
   "zenodo_downloads": 104,
   "zenodo_views": 616
 }
