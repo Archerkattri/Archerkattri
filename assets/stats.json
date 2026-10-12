@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 6447,
+  "comfy_downloads": 6459,
   "comfy_nodes": 3,
-  "commits": 3104,
+  "commits": 3128,
   "followers": 7,
   "huggingface_30d": 170,
   "huggingface_all": 711,
@@ -25,12 +25,12 @@
     {
       "color": "#f34b7d",
       "name": "C++",
-      "pct": 5.0
+      "pct": 4.9
     },
     {
       "color": "#b07219",
       "name": "Java",
-      "pct": 2.7
+      "pct": 2.8
     },
     {
       "color": "#A97BFF",
@@ -56,8 +56,7 @@
   "release_downloads": 382,
   "repos": 34,
   "stale_sources": [
-    "MCP",
-    "Zenodo"
+    "MCP"
   ],
   "stars": 98,
   "zenodo_downloads": 105,
