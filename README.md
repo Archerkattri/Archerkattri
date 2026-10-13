@@ -104,6 +104,13 @@ ComfyUI nodes: [ComfyUI-HiCache](https://github.com/Archerkattri/ComfyUI-HiCache
 
 </details>
 
+### Developer libraries
+
+| ProgressBeam | Vue Mini Bridge | LinguaMesh |
+|---|---|---|
+| [![ProgressBeam progress states](https://raw.githubusercontent.com/Archerkattri/progressbeam/master/docs/output-demo.gif)](https://github.com/Archerkattri/progressbeam) | [![Vue Mini Bridge compiler output](https://raw.githubusercontent.com/Archerkattri/vue-mini-bridge/master/docs/playground-demo.gif)](https://github.com/Archerkattri/vue-mini-bridge) | [![LinguaMesh provider map](https://raw.githubusercontent.com/Archerkattri/LinguaMesh/master/docs/provider-map.svg)](https://github.com/Archerkattri/LinguaMesh) |
+| Slim browser progress UI with accessibility support and framework adapters. [npm](https://www.npmjs.com/package/progressbeam) | Vue 2 runtime and compiler for WeChat, Alipay, Baidu, and ByteDance mini programs. [npm](https://www.npmjs.com/package/vue-mini-bridge) | Java tokenization with selectable Ansj, ICU4J, Lucene, OpenNLP, and Sudachi providers. |
+
 ## ▌ Stack
 
 <p>
