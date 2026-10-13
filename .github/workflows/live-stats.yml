@@ -23,6 +23,11 @@ on:
     paths:
       - scripts/update_stats.py
       - .github/workflows/live-stats.yml
+  pull_request:
+    branches: [master]
+    paths:
+      - scripts/update_stats.py
+      - .github/workflows/live-stats.yml
 
 permissions:
   contents: write
@@ -33,7 +38,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Check the stats collector syntax
+        run: python -m py_compile scripts/update_stats.py
+
   sync:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
