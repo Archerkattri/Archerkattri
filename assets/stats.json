@@ -1,10 +1,10 @@
 {
-  "comfy_downloads": 6489,
+  "comfy_downloads": 6500,
   "comfy_nodes": 3,
-  "commits": 3249,
+  "commits": 3270,
   "followers": 7,
-  "huggingface_30d": 170,
-  "huggingface_all": 711,
+  "huggingface_30d": 148,
+  "huggingface_all": 714,
   "huggingface_assets": 4,
   "languages": [
     {
@@ -20,7 +20,7 @@
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 9.9
+      "pct": 9.8
     },
     {
       "color": "#f34b7d",
@@ -35,12 +35,12 @@
     {
       "color": "#A97BFF",
       "name": "Kotlin",
-      "pct": 1.5
+      "pct": 1.4
     }
   ],
   "mcp_listings": 3,
   "name": "Krishi Attri",
-  "prs": 133,
+  "prs": 145,
   "pypi_all": 30754,
   "pypi_packages": 8,
   "pypi_projects": {
@@ -60,5 +60,5 @@
   ],
   "stars": 98,
   "zenodo_downloads": 105,
-  "zenodo_views": 639
+  "zenodo_views": 642
 }
