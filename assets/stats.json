@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 6799,
+  "comfy_downloads": 6804,
   "comfy_nodes": 3,
-  "commits": 3460,
+  "commits": 3461,
   "followers": 7,
   "huggingface_30d": 174,
   "huggingface_all": 807,
@@ -59,6 +59,6 @@
     "MCP"
   ],
   "stars": 103,
-  "zenodo_downloads": 105,
-  "zenodo_views": 714
+  "zenodo_downloads": 106,
+  "zenodo_views": 715
 }
