@@ -1,31 +1,31 @@
 {
-  "comfy_downloads": 6848,
+  "comfy_downloads": 6853,
   "comfy_nodes": 3,
-  "commits": 3500,
+  "commits": 3514,
   "followers": 7,
-  "huggingface_30d": 162,
-  "huggingface_all": 817,
+  "huggingface_30d": 155,
+  "huggingface_all": 823,
   "huggingface_assets": 4,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 53.7
+      "pct": 52.7
     },
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 21.0
+      "pct": 22.3
     },
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 8.1
+      "pct": 7.9
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 7.9
+      "pct": 7.8
     },
     {
       "color": "#f34b7d",
@@ -35,7 +35,7 @@
     {
       "color": "#b07219",
       "name": "Java",
-      "pct": 2.1
+      "pct": 2.0
     }
   ],
   "mcp_listings": 3,
@@ -53,12 +53,13 @@
     "stepback": 2217,
     "toothprint": 1075
   },
-  "release_downloads": 646,
+  "release_downloads": 670,
   "repos": 34,
   "stale_sources": [
-    "MCP"
+    "MCP",
+    "PyPI"
   ],
   "stars": 103,
   "zenodo_downloads": 106,
-  "zenodo_views": 729
+  "zenodo_views": 731
 }
