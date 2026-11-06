@@ -1,7 +1,7 @@
 {
   "comfy_downloads": 6906,
   "comfy_nodes": 3,
-  "commits": 3693,
+  "commits": 3702,
   "followers": 9,
   "huggingface_30d": 149,
   "huggingface_all": 831,
@@ -10,12 +10,12 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.6
+      "pct": 52.4
     },
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 22.4
+      "pct": 22.8
     },
     {
       "color": "#DA5B0B",
@@ -53,12 +53,12 @@
     "stepback": 2223,
     "toothprint": 1079
   },
-  "release_downloads": 757,
+  "release_downloads": 781,
   "repos": 34,
   "stale_sources": [
     "MCP"
   ],
   "stars": 100,
   "zenodo_downloads": 106,
-  "zenodo_views": 752
+  "zenodo_views": 753
 }
