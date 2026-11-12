@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7027,
+  "comfy_downloads": 7031,
   "comfy_nodes": 3,
-  "commits": 3731,
+  "commits": 3733,
   "followers": 8,
   "huggingface_30d": 151,
   "huggingface_all": 864,
@@ -40,7 +40,7 @@
   ],
   "mcp_listings": 3,
   "name": "Krishi Attri",
-  "prs": 153,
+  "prs": 154,
   "pypi_all": 33656,
   "pypi_packages": 8,
   "pypi_projects": {
@@ -60,5 +60,5 @@
   ],
   "stars": 101,
   "zenodo_downloads": 106,
-  "zenodo_views": 825
+  "zenodo_views": 827
 }
