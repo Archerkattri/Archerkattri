@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7047,
+  "comfy_downloads": 7050,
   "comfy_nodes": 3,
-  "commits": 3737,
+  "commits": 3746,
   "followers": 8,
   "huggingface_30d": 144,
   "huggingface_all": 869,
@@ -10,7 +10,7 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.3
+      "pct": 52.2
     },
     {
       "color": "#dea584",
@@ -20,7 +20,7 @@
     {
       "color": "#DA5B0B",
       "name": "Jupyter Notebook",
-      "pct": 7.9
+      "pct": 7.8
     },
     {
       "color": "#f1e05a",
@@ -56,10 +56,9 @@
   "release_downloads": 818,
   "repos": 34,
   "stale_sources": [
-    "GitHub commits",
     "MCP"
   ],
   "stars": 101,
   "zenodo_downloads": 106,
-  "zenodo_views": 834
+  "zenodo_views": 838
 }
