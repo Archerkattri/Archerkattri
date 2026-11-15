@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7070,
+  "comfy_downloads": 7072,
   "comfy_nodes": 3,
-  "commits": 3758,
+  "commits": 3759,
   "followers": 8,
   "huggingface_30d": 141,
   "huggingface_all": 875,
@@ -10,12 +10,12 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.2
+      "pct": 52.3
     },
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 23.0
+      "pct": 22.9
     },
     {
       "color": "#DA5B0B",
