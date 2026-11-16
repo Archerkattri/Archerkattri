@@ -1,10 +1,10 @@
 {
-  "comfy_downloads": 7098,
+  "comfy_downloads": 7105,
   "comfy_nodes": 3,
-  "commits": 3804,
+  "commits": 3809,
   "followers": 8,
-  "huggingface_30d": 140,
-  "huggingface_all": 880,
+  "huggingface_30d": 142,
+  "huggingface_all": 885,
   "huggingface_assets": 4,
   "languages": [
     {
@@ -53,7 +53,7 @@
     "stepback": 2282,
     "toothprint": 1108
   },
-  "release_downloads": 857,
+  "release_downloads": 868,
   "repos": 35,
   "stale_sources": [
     "MCP"
