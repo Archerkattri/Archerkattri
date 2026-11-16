@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7090,
+  "comfy_downloads": 7098,
   "comfy_nodes": 3,
-  "commits": 3764,
+  "commits": 3804,
   "followers": 8,
   "huggingface_30d": 140,
   "huggingface_all": 880,
@@ -10,12 +10,12 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.0
+      "pct": 51.7
     },
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 23.1
+      "pct": 23.5
     },
     {
       "color": "#DA5B0B",
@@ -25,7 +25,7 @@
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 7.6
+      "pct": 7.5
     },
     {
       "color": "#f34b7d",
@@ -41,24 +41,24 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 154,
-  "pypi_all": 34018,
+  "pypi_all": 34111,
   "pypi_packages": 8,
   "pypi_projects": {
-    "actionshift": 1559,
-    "aura-splat": 1365,
-    "certflow": 2964,
-    "hicache-pp": 8643,
-    "mathlas-mcp": 8940,
-    "splatreg": 7166,
-    "stepback": 2277,
-    "toothprint": 1104
+    "actionshift": 1568,
+    "aura-splat": 1370,
+    "certflow": 2968,
+    "hicache-pp": 8658,
+    "mathlas-mcp": 8982,
+    "splatreg": 7175,
+    "stepback": 2282,
+    "toothprint": 1108
   },
-  "release_downloads": 826,
-  "repos": 34,
+  "release_downloads": 857,
+  "repos": 35,
   "stale_sources": [
     "MCP"
   ],
   "stars": 101,
-  "zenodo_downloads": 111,
-  "zenodo_views": 855
+  "zenodo_downloads": 115,
+  "zenodo_views": 860
 }
