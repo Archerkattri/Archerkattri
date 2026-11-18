@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7124,
+  "comfy_downloads": 7128,
   "comfy_nodes": 3,
-  "commits": 3836,
+  "commits": 3842,
   "followers": 8,
   "huggingface_30d": 129,
   "huggingface_all": 886,
@@ -15,7 +15,7 @@
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 21.7
+      "pct": 21.8
     },
     {
       "color": "#DA5B0B",
@@ -53,12 +53,12 @@
     "stepback": 2292,
     "toothprint": 1111
   },
-  "release_downloads": 891,
+  "release_downloads": 912,
   "repos": 35,
   "stale_sources": [
     "MCP"
   ],
-  "stars": 101,
-  "zenodo_downloads": 115,
-  "zenodo_views": 874
+  "stars": 102,
+  "zenodo_downloads": 116,
+  "zenodo_views": 877
 }
