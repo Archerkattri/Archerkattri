@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7180,
+  "comfy_downloads": 7183,
   "comfy_nodes": 3,
-  "commits": 3851,
+  "commits": 3856,
   "followers": 8,
   "huggingface_30d": 135,
   "huggingface_all": 915,
@@ -10,7 +10,7 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.8
+      "pct": 52.7
     },
     {
       "color": "#dea584",
@@ -53,12 +53,12 @@
     "stepback": 2332,
     "toothprint": 1127
   },
-  "release_downloads": 919,
-  "repos": 35,
+  "release_downloads": 924,
+  "repos": 37,
   "stale_sources": [
     "MCP"
   ],
   "stars": 105,
   "zenodo_downloads": 122,
-  "zenodo_views": 908
+  "zenodo_views": 911
 }
