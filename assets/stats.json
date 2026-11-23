@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7247,
+  "comfy_downloads": 7265,
   "comfy_nodes": 3,
-  "commits": 3920,
+  "commits": 3923,
   "followers": 8,
   "huggingface_30d": 312,
   "huggingface_all": 1107,
@@ -20,7 +20,7 @@
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 8.0
+      "pct": 8.1
     },
     {
       "color": "#DA5B0B",
@@ -53,7 +53,7 @@
     "stepback": 2353,
     "toothprint": 1143
   },
-  "release_downloads": 965,
+  "release_downloads": 967,
   "repos": 38,
   "stale_sources": [
     "MCP"
