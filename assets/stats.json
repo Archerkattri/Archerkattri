@@ -1,30 +1,30 @@
 {
-  "comfy_downloads": 7240,
+  "comfy_downloads": 7247,
   "comfy_nodes": 3,
-  "commits": 3918,
+  "commits": 3920,
   "followers": 8,
-  "huggingface_30d": 304,
-  "huggingface_all": 1092,
+  "huggingface_30d": 312,
+  "huggingface_all": 1107,
   "huggingface_assets": 4,
   "languages": [
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.4
+      "pct": 52.2
     },
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 22.3
-    },
-    {
-      "color": "#DA5B0B",
-      "name": "Jupyter Notebook",
-      "pct": 7.8
+      "pct": 22.2
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
+      "pct": 8.0
+    },
+    {
+      "color": "#DA5B0B",
+      "name": "Jupyter Notebook",
       "pct": 7.7
     },
     {
@@ -41,20 +41,20 @@
   "mcp_listings": 3,
   "name": "Krishi Attri",
   "prs": 158,
-  "pypi_all": 34877,
+  "pypi_all": 35064,
   "pypi_packages": 8,
   "pypi_projects": {
-    "actionshift": 1645,
+    "actionshift": 1659,
     "aura-splat": 1413,
-    "certflow": 3055,
-    "hicache-pp": 8810,
-    "mathlas-mcp": 9206,
-    "splatreg": 7281,
-    "stepback": 2336,
-    "toothprint": 1131
+    "certflow": 3064,
+    "hicache-pp": 8838,
+    "mathlas-mcp": 9263,
+    "splatreg": 7331,
+    "stepback": 2353,
+    "toothprint": 1143
   },
-  "release_downloads": 964,
-  "repos": 37,
+  "release_downloads": 965,
+  "repos": 38,
   "stale_sources": [
     "MCP"
   ],
