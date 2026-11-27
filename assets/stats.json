@@ -1,7 +1,7 @@
 {
-  "comfy_downloads": 7315,
+  "comfy_downloads": 7317,
   "comfy_nodes": 3,
-  "commits": 3935,
+  "commits": 3939,
   "followers": 8,
   "huggingface_30d": 319,
   "huggingface_all": 1120,
@@ -10,17 +10,17 @@
     {
       "color": "#3572A5",
       "name": "Python",
-      "pct": 52.2
+      "pct": 52.0
     },
     {
       "color": "#dea584",
       "name": "Rust",
-      "pct": 22.2
+      "pct": 22.1
     },
     {
       "color": "#f1e05a",
       "name": "JavaScript",
-      "pct": 8.1
+      "pct": 8.3
     },
     {
       "color": "#DA5B0B",
@@ -53,12 +53,12 @@
     "stepback": 2373,
     "toothprint": 1161
   },
-  "release_downloads": 968,
-  "repos": 38,
+  "release_downloads": 972,
+  "repos": 40,
   "stale_sources": [
     "MCP"
   ],
   "stars": 108,
   "zenodo_downloads": 124,
-  "zenodo_views": 934
+  "zenodo_views": 935
 }
